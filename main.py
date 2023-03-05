@@ -4,10 +4,10 @@ from passwordGenerator import PasswordGenerator
 MIN_LENGTH = 8
 
 currentPath = os.getcwd()
-wordlist = open(currentPath + "/wordlist.txt", "w")
+wordlist = open(currentPath + "\\wordlist.txt", "w")
 
 passwordGenerator = PasswordGenerator()
-passwordGenerator.GeneratePassword(4)
+passwordGenerator.generatePassword(4)
 
 for password in PasswordGenerator.passwords:
     if (len(password) >= 8):

@@ -1,33 +1,18 @@
 class Key:
 
-    familyMembers = [
-        "mehmet", "cetin"]
-
-    cities = [
-        "izmir", "istanbul"]
-
-    teams = [
-        "fenerbahce", "galatasaray"]
-
-    symbols = [
-        "*", "-", ".", "_"]
-
-    cityCodes = [
-        "35", "34"]
-
-    birthYears = [
-        "1990", "2000"]
-
-    importantYears = [
-        "2023", "1881", "1453"]
-
-    sequences = [
-        "1", "123"]
+    familyMembers = list()
+    cities = list()
+    teams = list()
+    symbols = list()
+    cityCodes = list()
+    birthYears = list()
+    importantYears = list()
+    sequences =  list()
 
     def __init__(self):
         pass
 
-    def ModifyKey(self, keyList, reverse):
+    def modifyKey(self, keyList, reverse):
 
         for i in range(len(keyList)):
 
@@ -39,12 +24,33 @@ class Key:
                 keyList.append(keyList[i].upper()[::-1])
                 keyList.append(keyList[i].title()[::-1])
 
+    def getKeys(self, keyList, nameOfList):
+        keyList.clear()
+
+        print("\n<<< {} KEYS >>>".format(nameOfList))
+
+        while True:
+            key = input("Enter a key (For quit : \"Q\") :   ")
+
+            if (key.upper() == "Q"):
+                break
+            else:
+                keyList.append(key.strip())
+
 keyManager = Key()
 
-keyManager.ModifyKey(keyManager.familyMembers, True)
-keyManager.ModifyKey(keyManager.cities, False)
-keyManager.ModifyKey(keyManager.teams, False)
+keyManager.getKeys(keyManager.familyMembers, "Members of Family")
+keyManager.getKeys(keyManager.cities, "Associated Cities")
+keyManager.getKeys(keyManager.teams, "Teams")
+keyManager.getKeys(keyManager.symbols, "Special Symbols")
+keyManager.getKeys(keyManager.cityCodes, "City Codes")
+keyManager.getKeys(keyManager.birthYears, "Birthyears")
+keyManager.getKeys(keyManager.importantYears, "Important Years")
+keyManager.getKeys(keyManager.sequences, "Sequences")
 
-sumOfKeys = sum([keyManager.familyMembers, keyManager.cities, keyManager.teams,
-                 keyManager.symbols, keyManager.cityCodes, keyManager.birthYears,
-                 keyManager.importantYears, keyManager.sequences], [])
+keyManager.modifyKey(keyManager.familyMembers, True)
+keyManager.modifyKey(keyManager.cities, False)
+keyManager.modifyKey(keyManager.teams, False)
+
+sumOfKeys = sum([keyManager.familyMembers, keyManager.cities, keyManager.teams, keyManager.symbols,
+                keyManager.cityCodes, keyManager.birthYears, keyManager.importantYears, keyManager.sequences], [])
